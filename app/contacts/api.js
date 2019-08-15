@@ -1,25 +1,15 @@
 'use strict'
-const model = require('./model')
+const baseApi = require('../base/api')
 
-module.exports = class ContactsApi {
+module.exports = class ContactsApi extends baseApi {
     constructor(webapp, apiEp, controller) {
-        this.apiGet(webapp, apiEp, controller)
-        this.apiPost(webapp, apiEp, controller)
+        super(webapp, apiEp, controller)
+        this.apiSearch(webapp, apiEp, controller)
     }
 
-    apiGet(webapp, apiEp, controller) {
-        webapp.get(apiEp, (req, res, next) => {
-            controller.get(req.params)
-                .then(data => {
-                    res.status(200).json(data)
-                })
-                .catch(next)
-        })
-    }
-
-    apiPost(webapp, apiEp, controller) {
-        webapp.post(apiEp, (req, res, next) => {
-            controller.post(req.params, req.body)
+    apiSearch(webapp, apiEp, controller) {
+        webapp.get(apiEp + '/search', (req, res, next) => {
+            controller.searchContacts(req.query)
                 .then(data => {
                     res.status(200).json(data)
                 })

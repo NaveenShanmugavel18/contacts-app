@@ -6,5 +6,6 @@ module.exports = class app {
 
         this.controller = []
         this.controller.push(new (require('./contacts/control'))(dbo, config, webapp, '/contacts' ))
+        this.controller.push(new (require('./groups/control'))(dbo, config, webapp, '/groups' ))
     }
 }

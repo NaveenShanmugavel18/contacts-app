@@ -8,7 +8,7 @@ const start = (options, api) => {
 
     return new Promise((resolve, reject) => {
 
-        if(!options.port)
+        if (!options.port)
             return reject('Please specify the port to start the application')
 
         const app = express()
@@ -20,15 +20,21 @@ const start = (options, api) => {
         app.get('/', (req, res, next) => {
             res.status(200).json({})
         })
-        
+
         app.use((err, req, res, next) => {
             console.log('req', err)
             console.log('Error: ', JSON.stringify(err))
-            reject(new Error('Something went wrong!, err:' + JSON.stringify(err.message)))
-            res.status(500).json({ message: `Something went wrong!. Reason: ${JSON.stringify(err.message)}` })
+            reject(new Error('Something went wrong. err:' + JSON.stringify(err.message)))
+
+            if (err.name == 'ValidationError') {
+                res.status(422).json(err)
+            } else {
+                res.status(500).json({ message: `Something went wrong. Reason: ${JSON.stringify(err.message)}` })
+            }
+
             next()
         })
-    
+
         const server = app.listen(options.port, () => resolve(server))
     })
 }
