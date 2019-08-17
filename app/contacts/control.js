@@ -81,7 +81,7 @@ module.exports = class contactsController {
             if (!query.text)
                 return reject({ message: "Please enter a valid search text" })
 
-            this.dbo.contacts.find({ $text: { $search: query.text } })
+            this.dbo.contacts.find({ $text: { $search: query.text } }).sort({ date: 'desc' })
                 .then(resolve)
                 .catch(reject)
         })

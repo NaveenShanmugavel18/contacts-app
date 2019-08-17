@@ -20,7 +20,6 @@ process.on('uncaughtRejection', (err, promise) => {
 
 mediator.on('on.boot', () => {
     let expapp
-
     db.connect(config)
         .then(dbo => {
             console.log('Connected to DB succesfully.')
@@ -44,7 +43,7 @@ mediator.on('on.boot', () => {
                 })
         })
         .catch(err => {
-            console.log('Error connecting to DB')
+            console.log('Error connecting to DB.')
             console.log(err)
         })
 

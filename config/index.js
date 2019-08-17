@@ -1,9 +1,11 @@
 'use strict'
+require('dotenv').config()
+
 module.exports = Object.assign({}, {
-    port: 3000,
-    env: 'dev',
+    port: process.env.PORT,
+    env: process.env.ENVIRONMENT,
     db: {
-        host: 'mongodb://localhost:27017/',
-        name: 'contacts'
+        host: process.env.DB_HOST,
+        name: process.env.DB_NAME
     }
 })
