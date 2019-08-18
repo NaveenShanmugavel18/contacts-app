@@ -1,0 +1,224 @@
+{
+	"info": {
+		"_postman_id": "9e120d56-284e-4c16-b549-0a3f4fc27b23",
+		"name": "Contacts App - V1",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Create contact",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"Naveen\",\n    \"email\": [\n        {\n            \"tag\": \"work\",\n            \"value\": \"naveensv_work@yahoo.com\"\n        }\n    ],\n    \"phonenumber\": [\n        {\n            \"tag\": \"personal\",\n            \"value\": \"8000000000\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/contacts",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get contact",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/contacts",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update contact",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"_id\": \"5d522e14757e6500f768ceb9\",\n    \"name\": \"Naven Shanmugavel\",\n    \"email\": [\n        {\n            \"tag\": \"personal\",\n            \"value\": \"naveensv@yahoo.com\"\n        }\n    ],\n    \"phonenumber\": [\n        {\n            \"tag\": \"personal\",\n            \"value\": \"8000000003\"\n        }\n    ]\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/contacts",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete contact",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/contacts/5d522e14757e6500f768ceb9",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"contacts",
+						"5d522e14757e6500f768ceb9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create group",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"group_name\": \"SDE\",\n\t\"contacts\": [\"5d522c58cda7c9009b32eda0\", \"5d55af8033fa130555b17d5a\"]\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/groups",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"groups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get groups",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/groups",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"groups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update group details",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"_id\": \"5d55abb849039404af82473b\",\n    \"group_name\": \"SDE2\",\n    \"contacts\": [\"5d522c58cda7c9009b32eda0\", \"5d522dd294b72200dca4b9a0\", \"5d55af8033fa130555b17d5a\"]\n}"
+				},
+				"url": {
+					"raw": "localhost:3000/groups",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"groups"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete group",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/groups/5d55abb849039404af82473b",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"groups",
+						"5d55abb849039404af82473b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Search Contact",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:3000/contacts/search?text=Naveen",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"contacts",
+						"search"
+					],
+					"query": [
+						{
+							"key": "text",
+							"value": "Naveen"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
