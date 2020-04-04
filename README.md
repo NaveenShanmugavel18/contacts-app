@@ -34,7 +34,7 @@ by Name, Email or Phone number. Search results will list the contacts matching t
 
 
 # Installation
-- Clone the repo: `https://github.com/NaveenShanmugavel18/stackoverflow-data-visualization.git`
+- Clone the repo: `https://github.com/NaveenShanmugavel18/contacts-app.git`
 - Install dependencies: `npm install`
 - Start the server: `npm start`
 - Start the local mongodb server
